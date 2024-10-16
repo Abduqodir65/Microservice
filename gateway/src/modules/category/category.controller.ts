@@ -1,7 +1,8 @@
-import { Body, Controller, Delete, Get, Param, ParseIntPipe, Post } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, ParseIntPipe, Patch, Post } from '@nestjs/common';
 import { CategoryService } from './category.service';
 import { ApiTags } from '@nestjs/swagger';
 import { CreateCategoryDto } from './dtos';
+import { Payload } from '@nestjs/microservices';
 
 @ApiTags('Category')
 @Controller('categories')
@@ -11,6 +12,16 @@ export class CategoryController {
   @Get()
   getCategories() {
     return this.service.getCategoryList();
+  }
+
+  @Get("/:id")
+  getSingleCategory(id:number) {
+    return this.service.getSingleCategory(id)
+  }
+
+  @Patch()
+  updateCategory(id:number, payload: {name:string}) {
+    return this.service.updateCategory(id,payload)
   }
 
   @Post()

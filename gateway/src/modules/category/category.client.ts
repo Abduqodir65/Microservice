@@ -30,7 +30,7 @@ export class CategoryClient implements OnModuleInit {
     return this.client.send('getSingleCategory',id);
   }
 
-  updateCategory(payload: { id:number, name :string }) {
+  updateCategory(id:number,payload: {  name :string }) {
     return this.client.send('updateCategory', payload)
   }
 
