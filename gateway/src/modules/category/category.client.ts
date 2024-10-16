@@ -26,6 +26,13 @@ export class CategoryClient implements OnModuleInit {
   getAllCategories() {
     return this.client.send('getAllCategories', '');
   }
+  getSingleCategory() {
+    return this.client.send('getSingleCategory', '');
+  }
+
+  updateCategory(payload: { id:number, name :string }) {
+    return this.client.send('updateCategory', payload)
+  }
 
   createCategory(name: string) {
     return this.client.send('createCategory', { name });
