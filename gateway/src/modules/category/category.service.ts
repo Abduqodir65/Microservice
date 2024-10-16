@@ -8,6 +8,13 @@ export class CategoryService {
   getCategoryList() {
     return this.categoryClient.getAllCategories();
   }
+  getSingleCategory(id:number) {
+    return this.categoryClient.getSingleCategory(id);
+  }
+
+  updateCategory(payload: { id:number, name :string }) {
+    return this.updateCategory(payload)
+  }
 
   createCategory(name: string) {
     return this.categoryClient.createCategory(name);
