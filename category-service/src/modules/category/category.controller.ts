@@ -26,8 +26,8 @@ export class CategoryController {
     return await this.categoryService.findAll();
   }
 
-  findOne(@Param('id') id: string) {
-    return this.categoryService.findOne(+id);
+  async findOne(@Param('id') id: string) {
+    return await this.categoryService.findOne(+id);
   }
 
   update(
